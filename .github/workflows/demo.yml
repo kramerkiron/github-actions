@@ -3,13 +3,14 @@ on: [push]
 
 jobs: 
   frontend-workflow:
-  name:FrontWorkflow
+   name: FrontWorkflow
+   runs-on: ubuntu-latest
   
-  steps:
-    -name: Check out repo code
-     uses:  actions/checkout@v2
+   steps:
+    - name: Check out repo code
+      uses: actions/checkout@v2
      
-    -name Print  app.js
-    run: cat src/frontend/app.js
+    - name: Print  app.js
+      run: cat src/frontend/app.js
      
      
