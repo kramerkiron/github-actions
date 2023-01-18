@@ -1,0 +1,42 @@
+name: Übung2
+on: [push]
+
+jobs: 
+  frontend-workflow:
+   name: FrontWorkflow
+   runs-on: ubuntu-latest
+  
+   steps:
+    - name: Check out repo code
+      uses: actions/checkout@v2
+     
+    steps:
+      - name: node.js
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm test
+    
+    steps:
+      - name: run app.js
+      - run: node src/frontend/app.js
+    
+    steps:
+      - name: directory
+      - run: mkdir -p dist
+      
+    steps:
+      - name: copying
+      - run: cp src/frontend/app.js dist/app.js
+      
+    steps:
+      - name: comment + date
+      - run : sed '1i // $now'
+      
+    steps:
+      - name: test
+      - run: node dist/app.js
+      
+    
