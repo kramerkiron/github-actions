@@ -89,6 +89,9 @@ jobs:
        - name: create creation.txt
          run: echo '// Built at' $(date) > dist/creation.txt
          
-       - name: print creation
-         run: cat dist/creation.txt
+       - name: create bundle.zip
+         run: zip -r bundle.zip dist/
+         
+       - name: list contents
+         run: ls
        
