@@ -24,6 +24,12 @@ jobs:
 
       - name: Run built frontend for testing
         run: node dist/app.js
+        
+      - name: upload dir
+        uses: actions/upload-artifact@v2
+        with:
+          name: distfrontend
+          path: dir/
 
 
   backend: 
@@ -46,14 +52,25 @@ jobs:
       - name: Run built Backend for testing
         run: python dist/run.py
         
-  upload-sth:
-     name: upload artifact
-     runs-on: ubuntu-latest
+      - name: upload dir
+        uses: actions/upload-artifact@v2
+        with:
+          name: distbackend
+          path: dir/
+        
+  bundle:
+    name: bundle-workflow
+    needs: frontend
+    runs-on: ubuntu-latest
      
-     steps:
+    steps:
      
-       - name: upload dir
-         uses: actions/upload-artifact@v2
+       - name: Create dist dir
+         run: mkdir -p dist
+         
+       - name: download frontend
+         uses: actions/download-artifact@v2
          with:
-           name: distdir
-           path: dir/
+           name: distfrontend
+           path: dir/frontend
+       
