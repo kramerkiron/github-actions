@@ -3,10 +3,10 @@ on: [push]
 
 jobs: 
   frontend-workflow:
-   name: FrontWorkflow
-   runs-on: ubuntu-latest
+    name: FrontWorkflow
+    runs-on: ubuntu-latest
   
-   steps:
+    steps:
     - name: Check out repo code
       uses: actions/checkout@v2
      
