@@ -55,7 +55,7 @@ jobs:
       - name: upload dir
         uses: actions/upload-artifact@v2
         with:
-          name: distbackend
+          name: dirbackend
           path: dist/
         
   bundle:
@@ -73,4 +73,13 @@ jobs:
          with:
            name: dirfrontend
            path: dist/frontend
-       
+           
+       - name: download backend
+         uses: actions/download-artifact@v2
+         with:
+           name: dirbackend
+           path: dist/backend
+      
+       - name: print it
+         run: |
+           ls dist/
