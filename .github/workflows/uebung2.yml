@@ -60,7 +60,9 @@ jobs:
         
   bundle:
     name: bundle-workflow
-    needs: frontend
+    needs:
+     - frontend
+     - backend
     runs-on: ubuntu-latest
      
     steps:
@@ -83,3 +85,10 @@ jobs:
        - name: print it
          run: |
            ls dist/
+           
+       - name: create creation.txt
+         run: echo '// Built at' $(date) > dist/creation.txt
+         
+       - name: print creation
+         run: cat dist/creation.txt
+       
