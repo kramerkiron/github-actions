@@ -28,8 +28,8 @@ jobs:
       - name: upload dir
         uses: actions/upload-artifact@v2
         with:
-          name: distfrontend
-          path: dir/
+          name: dirfrontend
+          path: ./dir/
 
 
   backend: 
