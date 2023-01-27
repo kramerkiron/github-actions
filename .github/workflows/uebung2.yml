@@ -45,3 +45,15 @@ jobs:
 
       - name: Run built Backend for testing
         run: python dist/run.py
+        
+  upload-sth:
+     name: upload artifact
+     runs-on: ubuntu-latest
+     
+     steps:
+     
+       - name: upload dir
+         uses: act ions/upload-artifact@v2
+         with:
+           name: distdir
+           path: dir/
