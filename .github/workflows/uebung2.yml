@@ -18,18 +18,18 @@ jobs:
     - run: npm test
     
     - name: run app.js
-    - run: node src/frontend/app.js
+      run: node src/frontend/app.js
     
     - name: directory
-    - run: mkdir -p dist
+      run: mkdir -p dist
       
     - name: copying
-    - run: cp src/frontend/app.js dist/app.js
+      run: cp src/frontend/app.js dist/app.js
       
     - name: comment + date
-    - run : sed '1i // $now'
+      run : sed '1i // $now'
       
     - name: test
-    - run: node dist/app.js
+      run: node dist/app.js
       
     
